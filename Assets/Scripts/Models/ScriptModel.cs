@@ -31,5 +31,25 @@ public class ScriptModel
         var splitTexts = scriptsText.Split('\n');
         //  「//」で始まる行と何もない行は無視する
         _scriptStrings = splitTexts.Where(x => x.IndexOf("//") < 0 && !string.IsNullOrWhiteSpace(x)).ToList();
+        //ラベル辞書を作成する
+        MakeLabel();
+    }
+    /// <summary>
+    /// ラベル辞書の生成
+    /// </summary>
+    private void MakeLabel()
+    {
+        foreach (var labelSet in _scriptStrings.Select((commandStr, index) => new { commandStr, index })) 
+        {
+            //ラベルコマンドかどうかを判断する
+            if(labelSet.commandStr.IndexOf("label") == 0)
+            {
+                // csv なので[,]で区切って配列にする
+                var labelParse = labelSet.commandStr.Split(',');
+                //ラベルが示す名前（配列の２番目 labelParse[1],0からのカウントなので、ラベルの行番号
+                //これが辞書として登録
+                _labelLineNums.Add(labelParse[1], labelSet.index);
+            }
+        }
     }
 }

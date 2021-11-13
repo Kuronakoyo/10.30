@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Models\ScriptModel.cs" />
+    <Compile Include="Assets\Scripts\UseCase\GameSampleScene.cs" />
     <Compile Include="Assets\Scripts\UseCase\ScenarioUseCase.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/student/Desktop/10.30/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -623,6 +624,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{AAD46720-2F38-2103-0DA3-C5BAECD5A3F0}</Project>
+      <Name>UniRx</Name>
+    </ProjectReference>
     <ProjectReference Include="UniTask.Addressables.csproj">
       <Project>{E613B676-6475-8C72-D1A6-405567FAECBA}</Project>
       <Name>UniTask.Addressables</Name>
@@ -642,10 +647,6 @@
     <ProjectReference Include="UniTask.Linq.csproj">
       <Project>{F74493AF-7DB0-6C5C-AE4A-50D48026317C}</Project>
       <Name>UniTask.Linq</Name>
-    </ProjectReference>
-    <ProjectReference Include="UniRx.csproj">
-      <Project>{AAD46720-2F38-2103-0DA3-C5BAECD5A3F0}</Project>
-      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
